@@ -1,0 +1,74 @@
+# %%
+import numpy as np
+import pandas as pd
+
+# %%
+# import kagglehub
+
+# # Download latest version
+# path = kagglehub.dataset_download("zeyneppyalcinn/indian-employee-dataset")
+
+# print("Path to dataset files:", path)
+
+# %%
+df = pd.read_csv("./Indian_Employee_Data.csv")
+
+df.head()
+
+# %%
+# Checking the missing values
+pd.isnull(df).head()
+
+# %%
+all_cols = df.columns
+
+# %%
+# Print the number of nulls in each column
+for index, col in enumerate(all_cols):
+    if df[col].isna().sum() != 0:
+        print(f"{col} - {df[col].isna().sum()}")
+
+# %%
+df = df.replace([np.inf, -np.inf], np.nan, inplace=True)
+df["Salary"] = df["Salary"].fillna(value=df["Salary"].mean().__round__(2))
+
+df.loc[df["Salary"] < 0, "Salary"] = -1 * df["Salary"]
+
+df.head()
+
+# %%
+df.isnull().sum()
+
+# %%
+df["Age"] = df["Age"].fillna(df["Age"].median())
+
+# %%
+df["Experience_Years"] = df["Experience_Years"].fillna(0)
+
+# %%
+df["State"] = df["State"].fillna("UNKNOWN")
+
+# %%
+df.drop_duplicates(inplace=True)
+
+# %%
+df["Performance_Rating"] = df["Performance_Rating"].fillna(df["Performance_Rating"].median().__round__(2))
+
+# %%
+standard_salary = df["Salary"].std()
+mean_salary = df["Salary"].mean()
+
+lower_bound = mean_salary - 3 * (standard_salary)
+upper_bound = mean_salary + 3 * (standard_salary)
+
+df = df[(df["Salary"] >= lower_bound) & (df["Salary"] <= upper_bound)]
+
+# %%
+df.to_csv("Cleaned_Indian_Employee_Data.csv")
+
+# Saved the Cleaned CSV to ./Cleaned_Indian_Employee_Data.csv
+
+# %%
+df
+
+
