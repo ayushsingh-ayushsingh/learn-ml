@@ -9,4 +9,6 @@
 
 ## Subheading
 
-<center>Hello, world!</center>
+<div align="center">
+  Hello, world!
+</div>
