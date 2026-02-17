@@ -1,6 +1,6 @@
 import requests
 
-BASE_URL = "http://localhost:3000"
+BASE_URL = "http://190.1.3.34:3000"
 
 
 def get_all_users():
