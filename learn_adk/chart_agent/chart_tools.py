@@ -47,9 +47,9 @@ def generate_sales_chart(data):
 
     plt.figure()
     plt.plot(months, revenue)
-    plt.title("Monthly Revenue")
-    plt.xlabel("Month")
-    plt.ylabel("Revenue")
-    plt.savefig("revenue_chart.png")
+    plt.title("Chart")
+    plt.xlabel("X-Axis")
+    plt.ylabel("Y-Axis")
+    plt.savefig("chart.png")
 
-    return "Chart saved as revenue_chart.png"
+    return "Chart saved as chart.png"

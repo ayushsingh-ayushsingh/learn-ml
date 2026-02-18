@@ -6,15 +6,15 @@ from google.adk.agents.remote_a2a_agent import AGENT_CARD_WELL_KNOWN_PATH
 from google.adk.agents.remote_a2a_agent import RemoteA2aAgent
 from google.adk.agents import LlmAgent
 from google.adk.tools.mcp_tool import McpToolset
-from google.adk.tools.mcp_tool.mcp_session_manager import StdioConnectionParams
+from google.adk.tools.mcp_tool.mcp_session_manager import StdioConnectionParams, StreamableHTTPConnectionParams
 from mcp import StdioServerParameters
 
 load_dotenv()
 
 DATABASE_AGENT_URL = os.getenv("DATABASE_AGENT_URL")
 CHART_AGENT_URL = os.getenv("CHART_AGENT_URL")
-
-PATH_TO_YOUR_MCP_SERVER_SCRIPT = r"C:\Users\mm0954\Documents\maventic_ai_101\mcp_server\adk_mcp_server.py"
+MCP_SERVER_URL = os.getenv("MCP_SERVER_URL")
+PATH_OF_MCP_SERVER_SCRIPT = r"C:\Users\mm0954\Documents\maventic_ai_101\mcp_server\adk_mcp_server.py"
 
 remote_agent = RemoteA2aAgent(
     name="database_orchestrator",
@@ -36,16 +36,27 @@ remote_chart_agent = RemoteA2aAgent(
 web_reader_mcp_client_agent = LlmAgent(
     model=LiteLlm(model="groq/openai/gpt-oss-20b"),
     name='web_reader_mcp_client_agent',
-    instruction="Use the 'load_web_page' tool to fetch content from a URL provided by the user.",
+    instruction="Use the 'load_web_page' tool to fetch content from a URL or scrape a website URL provided by the user.",
     tools=[
         McpToolset(
             connection_params=StdioConnectionParams(
                 server_params=StdioServerParameters(
                     command='uv',
-                    args=['run', PATH_TO_YOUR_MCP_SERVER_SCRIPT],
+                    args=['run', PATH_OF_MCP_SERVER_SCRIPT],
                 )
             )
         )
+    ],
+)
+
+file_creation_mcp_agent = LlmAgent(
+    model=LiteLlm(model="groq/openai/gpt-oss-20b"),
+    name='file_creation_mcp_agent',
+    instruction="Use the 'create_file' tool to create file and add content to that file.",
+    tools=[
+        McpToolset(connection_params=StreamableHTTPConnectionParams(
+            url=MCP_SERVER_URL,
+        ))
     ],
 )
 
@@ -54,6 +65,6 @@ root_agent = Agent(
     name='Orchestrator_Agent',
     description="""You are "Maventic" the Orchestrator agent.""",
     instruction='Answer user questions to the best of your knowledge, use the tools and sub agents to perform tasks based on the user requirements.',
-    # sub_agents=[remote_agent, web_reader_mcp_client_agent],
-    sub_agents=[remote_agent, remote_chart_agent],
+    sub_agents=[remote_agent, web_reader_mcp_client_agent,
+                remote_chart_agent, file_creation_mcp_agent],
 )
