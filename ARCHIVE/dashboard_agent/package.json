@@ -1,0 +1,17 @@
+{
+  "name": "dashboard-agent",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --hot src/index.ts"
+  },
+  "dependencies": {
+    "@google/adk": "^0.3.0",
+    "@hono/node-server": "^1.12.2",
+    "hono": "^4.5.10",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@google/adk-devtools": "^0.3.0",
+    "@types/node": "^20.11.17"
+  }
+}
