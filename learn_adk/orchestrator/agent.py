@@ -12,6 +12,8 @@ from mcp import StdioServerParameters
 load_dotenv()
 
 DATABASE_AGENT_URL = os.getenv("DATABASE_AGENT_URL")
+CHART_AGENT_URL = os.getenv("CHART_AGENT_URL")
+
 PATH_TO_YOUR_MCP_SERVER_SCRIPT = r"C:\Users\mm0954\Documents\maventic_ai_101\mcp_server\adk_mcp_server.py"
 
 remote_agent = RemoteA2aAgent(
@@ -20,6 +22,15 @@ remote_agent = RemoteA2aAgent(
         "Database agent is an AI agent capable of db operations on the server. It can perform insertions, deletions, updations and retrival from that database."
     ),
     agent_card=f"{DATABASE_AGENT_URL}{AGENT_CARD_WELL_KNOWN_PATH}",
+)
+
+remote_chart_agent = RemoteA2aAgent(
+    name="chart_agent",
+    description=(
+        "Sales Chart Agent is an AI agent capable of generating "
+        "monthly revenue charts using provided sales data."
+    ),
+    agent_card=f"{CHART_AGENT_URL}{AGENT_CARD_WELL_KNOWN_PATH}",
 )
 
 web_reader_mcp_client_agent = LlmAgent(
@@ -38,11 +49,11 @@ web_reader_mcp_client_agent = LlmAgent(
     ],
 )
 
-
 root_agent = Agent(
     model=LiteLlm(model="groq/openai/gpt-oss-20b"),
     name='Orchestrator_Agent',
     description="""You are "Maventic" the Orchestrator agent.""",
     instruction='Answer user questions to the best of your knowledge, use the tools and sub agents to perform tasks based on the user requirements.',
-    sub_agents=[remote_agent, web_reader_mcp_client_agent],
+    # sub_agents=[remote_agent, web_reader_mcp_client_agent],
+    sub_agents=[remote_agent, remote_chart_agent],
 )
