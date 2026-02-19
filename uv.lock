@@ -2297,6 +2297,7 @@ dependencies = [
     { name = "lxml" },
     { name = "matplotlib" },
     { name = "mcp", extra = ["cli"] },
+    { name = "mcp-client" },
     { name = "mcp-server" },
     { name = "numpy" },
     { name = "ollama" },
@@ -2330,6 +2331,7 @@ requires-dist = [
     { name = "lxml", specifier = ">=6.0.2" },
     { name = "matplotlib", specifier = ">=3.10.8" },
     { name = "mcp", extras = ["cli"], specifier = ">=1.26.0" },
+    { name = "mcp-client", specifier = ">=0.0.0" },
     { name = "mcp-server", specifier = ">=0.1.4" },
     { name = "numpy", specifier = ">=2.4.2" },
     { name = "ollama", specifier = ">=0.6.1" },
@@ -2372,6 +2374,15 @@ wheels = [
 cli = [
     { name = "python-dotenv" },
     { name = "typer" },
+]
+
+[[package]]
+name = "mcp-client"
+version = "0.0.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/d2/1a/026fa01e02d74c179389810d3f39b445186f4db40fa8f1f49216898a58e0/mcp_client-0.0.0.tar.gz", hash = "sha256:9481038aa33cace12f99445dedbc50b18f76db49170fb1fb750c32014ae43755", size = 951, upload-time = "2025-06-03T06:32:42.848Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/90/c5/1843613719f6a3e079c07180802acd95be71fdcfbed34252ab2173ef2974/mcp_client-0.0.0-py3-none-any.whl", hash = "sha256:0fb43aab6ede1fcae4f85045a24bfc74b9b855f920344f426dcec5f2457f950d", size = 1338, upload-time = "2025-06-03T06:32:39.845Z" },
 ]
 
 [[package]]

@@ -22,6 +22,7 @@ dependencies = [
     "litellm>=1.81.12",
     "lxml>=6.0.2",
     "matplotlib>=3.10.8",
+    "mcp-client>=0.0.0",
     "mcp-server>=0.1.4",
     "mcp[cli]>=1.26.0",
     "numpy>=2.4.2",

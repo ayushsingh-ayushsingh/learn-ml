@@ -14,7 +14,7 @@ load_dotenv()
 DATABASE_AGENT_URL = os.getenv("DATABASE_AGENT_URL")
 CHART_AGENT_URL = os.getenv("CHART_AGENT_URL")
 MCP_SERVER_URL = os.getenv("MCP_SERVER_URL")
-PATH_OF_MCP_SERVER_SCRIPT = r"C:\Users\mm0954\Documents\maventic_ai_101\mcp_server\adk_mcp_server.py"
+PATH_OF_MCP_SERVER_SCRIPT = os.getenv("PATH_OF_MCP_SERVER_SCRIPT")
 
 remote_agent = RemoteA2aAgent(
     name="database_orchestrator",
