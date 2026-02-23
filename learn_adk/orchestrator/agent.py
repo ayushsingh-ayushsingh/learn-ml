@@ -44,12 +44,6 @@ web_reader_mcp_client_agent = LlmAgent(
                     command='uv',
                     args=[
                         "run",
-                        "--with",
-                        "fastmcp",
-                        "--with",
-                        "requests",
-                        "fastmcp",
-                        "run",
                         PATH_OF_MCP_SERVER_SCRIPT
                     ]
                 )
@@ -61,7 +55,10 @@ web_reader_mcp_client_agent = LlmAgent(
 file_creation_mcp_agent = LlmAgent(
     model=LiteLlm(model="groq/openai/gpt-oss-20b"),
     name='file_creation_mcp_agent',
-    instruction="Use the 'create_file' tool to create file and add content to that file.",
+    instruction="Use the 'create_file' tool to create file and add content to that file. If users says to save to desktop then use this desktop path: C:/Users/mm0954/Desktop if not specified save it without this."
+    "If desktop specified to, say, create a hello.md file then C:/Users/mm0954/Desktop/hello.md and content = '# Hello, World!'"
+    "Else if not specified then path should be hello.md and content = '# Hello, World!'"
+    "If another path is specified by the user then use that path to save the file.",
     tools=[
         McpToolset(connection_params=StreamableHTTPConnectionParams(
             url=MCP_SERVER_URL,
