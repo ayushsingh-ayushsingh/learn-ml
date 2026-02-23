@@ -42,7 +42,16 @@ web_reader_mcp_client_agent = LlmAgent(
             connection_params=StdioConnectionParams(
                 server_params=StdioServerParameters(
                     command='uv',
-                    args=['run', PATH_OF_MCP_SERVER_SCRIPT],
+                    args=[
+                        "run",
+                        "--with",
+                        "fastmcp",
+                        "--with",
+                        "requests",
+                        "fastmcp",
+                        "run",
+                        PATH_OF_MCP_SERVER_SCRIPT
+                    ]
                 )
             )
         )
