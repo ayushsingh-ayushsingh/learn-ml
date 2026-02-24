@@ -33,6 +33,14 @@ remote_chart_agent = RemoteA2aAgent(
     agent_card=f"{CHART_AGENT_URL}{AGENT_CARD_WELL_KNOWN_PATH}",
 )
 
+mohits_db_agent = RemoteA2aAgent(
+    name="mohits_db_agent",
+    description=(
+        "Root agent to orchestrate Database Agent, Sales Chart Agent and Summary Agent."
+    ),
+    agent_card="http://190.1.3.74:8001/.well-known/agent-card.json",
+)
+
 web_reader_mcp_client_agent = LlmAgent(
     model=LiteLlm(model="groq/openai/gpt-oss-20b"),
     name='web_reader_mcp_client_agent',
@@ -71,6 +79,7 @@ root_agent = Agent(
     name='Orchestrator_Agent',
     description="""You are "Maventic" the Orchestrator agent.""",
     instruction='Answer user questions to the best of your knowledge, use the tools and sub agents to perform tasks based on the user requirements.',
-    sub_agents=[remote_agent, web_reader_mcp_client_agent,
-                remote_chart_agent, file_creation_mcp_agent],
+    # sub_agents=[remote_agent, web_reader_mcp_client_agent,
+    #             remote_chart_agent, file_creation_mcp_agent],
+    sub_agents=[mohits_db_agent]
 )
