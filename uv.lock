@@ -7,12 +7,6 @@ resolution-markers = [
     "sys_platform != 'emscripten' and sys_platform != 'win32'",
 ]
 
-[manifest]
-members = [
-    "maventic-ai-101",
-    "ocr",
-]
-
 [[package]]
 name = "aiohappyeyeballs"
 version = "2.6.1"
@@ -622,12 +616,6 @@ wheels = [
 ]
 
 [[package]]
-name = "dotenv-python"
-version = "0.0.1"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/c8/ed/9004fd73042bd1777b236fd55e4fc2b7be3a4c60e16b8528538926f04ecb/dotenv-python-0.0.1.zip", hash = "sha256:362e170ca8fd69a70c1aca1fda2ddad0ac270e161e81e59f4039ec11decc14fa", size = 1824, upload-time = "2017-01-28T15:34:05.675Z" }
-
-[[package]]
 name = "durationpy"
 version = "0.10"
 source = { registry = "https://pypi.org/simple" }
@@ -853,11 +841,11 @@ wheels = [
 
 [[package]]
 name = "fsspec"
-version = "2026.2.0"
+version = "2024.12.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/51/7c/f60c259dcbf4f0c47cc4ddb8f7720d2dcdc8888c8e5ad84c73ea4531cc5b/fsspec-2026.2.0.tar.gz", hash = "sha256:6544e34b16869f5aacd5b90bdf1a71acb37792ea3ddf6125ee69a22a53fb8bff", size = 313441, upload-time = "2026-02-05T21:50:53.743Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ee/11/de70dee31455c546fbc88301971ec03c328f3d1138cfba14263f651e9551/fsspec-2024.12.0.tar.gz", hash = "sha256:670700c977ed2fb51e0d9f9253177ed20cbde4a3e5c0283cc5385b5870c8533f", size = 291600, upload-time = "2024-12-19T19:57:30.333Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e6/ab/fb21f4c939bb440104cc2b396d3be1d9b7a9fd3c6c2a53d98c45b3d7c954/fsspec-2026.2.0-py3-none-any.whl", hash = "sha256:98de475b5cb3bd66bedd5c4679e87b4fdfe1a3bf4d707b151b3c07e58c9a2437", size = 202505, upload-time = "2026-02-05T21:50:51.819Z" },
+    { url = "https://files.pythonhosted.org/packages/de/86/5486b0188d08aa643e127774a99bac51ffa6cf343e3deb0583956dca5b22/fsspec-2024.12.0-py3-none-any.whl", hash = "sha256:b520aed47ad9804237ff878b504267a3b0b441e97508bd6d2d8774e3db85cee2", size = 183862, upload-time = "2024-12-19T19:57:28.258Z" },
 ]
 
 [[package]]
@@ -1781,6 +1769,15 @@ wheels = [
 ]
 
 [[package]]
+name = "json-repair"
+version = "0.44.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/a8/6b/ed6e92efc5acfbc9c35ccae1676b70e4adb1552421e64f838c2a3f097d9a/json_repair-0.44.1.tar.gz", hash = "sha256:1130eb9733b868dac1340b43cb2effebb519ae6d52dd2d0728c6cca517f1e0b4", size = 32886, upload-time = "2025-04-30T16:09:38.54Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/82/b4/3cbd27a3240b2962c3b87bbb1c20eb6c56e5b26cde61f141f86ca98e2f68/json_repair-0.44.1-py3-none-any.whl", hash = "sha256:51d82532c3b8263782a301eb7904c75dce5fee8c0d1aba490287fc0ab779ac50", size = 22478, upload-time = "2025-04-30T16:09:37.303Z" },
+]
+
+[[package]]
 name = "jsonpatch"
 version = "1.33"
 source = { registry = "https://pypi.org/simple" }
@@ -2039,6 +2036,22 @@ wheels = [
 ]
 
 [[package]]
+name = "langchain-neo4j"
+version = "0.8.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "langchain-classic" },
+    { name = "langchain-core" },
+    { name = "langgraph" },
+    { name = "neo4j" },
+    { name = "neo4j-graphrag" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/c2/2b/756fa327cec626ab509c478c610320af994dfa236e64c9eb87d9bc749d1b/langchain_neo4j-0.8.0.tar.gz", hash = "sha256:44537ed168c72ae501c240d1a1e09ce179e4e3153e274a76e82f56cab42924fa", size = 204409, upload-time = "2026-01-20T10:29:13.766Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/59/89/9a461e60f76c7c43bc08fecab39a049599a22fbbf572152d2bd60fc63959/langchain_neo4j-0.8.0-py3-none-any.whl", hash = "sha256:21834f2ec1a1eb5f30cdd5a8a3baa23f7ed70d920bbb70b156a70b94be93d59c", size = 48384, upload-time = "2026-01-20T10:29:12.859Z" },
+]
+
+[[package]]
 name = "langchain-ollama"
 version = "1.0.1"
 source = { registry = "https://pypi.org/simple" }
@@ -2049,6 +2062,20 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/73/51/72cd04d74278f3575f921084f34280e2f837211dc008c9671c268c578afe/langchain_ollama-1.0.1.tar.gz", hash = "sha256:e37880c2f41cdb0895e863b1cfd0c2c840a117868b3f32e44fef42569e367443", size = 153850, upload-time = "2025-12-12T21:48:28.68Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e3/46/f2907da16dc5a5a6c679f83b7de21176178afad8d2ca635a581429580ef6/langchain_ollama-1.0.1-py3-none-any.whl", hash = "sha256:37eb939a4718a0255fe31e19fbb0def044746c717b01b97d397606ebc3e9b440", size = 29207, upload-time = "2025-12-12T21:48:27.832Z" },
+]
+
+[[package]]
+name = "langchain-openai"
+version = "1.1.9"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "langchain-core" },
+    { name = "openai" },
+    { name = "tiktoken" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/49/ae/1dbeb49ab8f098f78ec52e21627e705e5d7c684dc8826c2c34cc2746233a/langchain_openai-1.1.9.tar.gz", hash = "sha256:fdee25dcf4b0685d8e2f59856f4d5405431ef9e04ab53afe19e2e8360fed8234", size = 1004828, upload-time = "2026-02-10T21:03:21.615Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/52/a1/8a20d19f69d022c10d34afa42d972cc50f971b880d0eb4a828cf3dd824a8/langchain_openai-1.1.9-py3-none-any.whl", hash = "sha256:ca2482b136c45fb67c0db84a9817de675e0eb8fb2203a33914c1b7a96f273940", size = 85769, upload-time = "2026-02-10T21:03:20.333Z" },
 ]
 
 [[package]]
@@ -2353,13 +2380,17 @@ dependencies = [
     { name = "langchain-core" },
     { name = "langchain-groq" },
     { name = "langchain-mcp-adapters" },
+    { name = "langchain-neo4j" },
     { name = "langchain-ollama" },
+    { name = "langchain-openai" },
+    { name = "langchain-text-splitters" },
     { name = "litellm" },
     { name = "lxml" },
     { name = "matplotlib" },
     { name = "mcp", extra = ["cli"] },
     { name = "mcp-client" },
     { name = "mcp-server" },
+    { name = "neo4j" },
     { name = "numpy" },
     { name = "ollama" },
     { name = "openpyxl" },
@@ -2371,6 +2402,7 @@ dependencies = [
     { name = "scikit-learn" },
     { name = "seaborn" },
     { name = "streamlit" },
+    { name = "tiktoken" },
     { name = "xlrd" },
 ]
 
@@ -2389,13 +2421,17 @@ requires-dist = [
     { name = "langchain-core", specifier = ">=1.2.11" },
     { name = "langchain-groq", specifier = ">=1.1.2" },
     { name = "langchain-mcp-adapters", specifier = ">=0.2.1" },
+    { name = "langchain-neo4j", specifier = ">=0.8.0" },
     { name = "langchain-ollama", specifier = ">=1.0.1" },
+    { name = "langchain-openai", specifier = ">=1.1.9" },
+    { name = "langchain-text-splitters", specifier = ">=1.1.0" },
     { name = "litellm", specifier = ">=1.81.12" },
     { name = "lxml", specifier = ">=6.0.2" },
     { name = "matplotlib", specifier = ">=3.10.8" },
     { name = "mcp", extras = ["cli"], specifier = ">=1.26.0" },
     { name = "mcp-client", specifier = ">=0.0.0" },
     { name = "mcp-server", specifier = ">=0.1.4" },
+    { name = "neo4j", specifier = ">=6.1.0" },
     { name = "numpy", specifier = ">=2.4.2" },
     { name = "ollama", specifier = ">=0.6.1" },
     { name = "openpyxl", specifier = ">=3.1.5" },
@@ -2407,6 +2443,7 @@ requires-dist = [
     { name = "scikit-learn", specifier = ">=1.8.0" },
     { name = "seaborn", specifier = ">=0.13.2" },
     { name = "streamlit", specifier = ">=1.8.0" },
+    { name = "tiktoken", specifier = ">=0.12.0" },
     { name = "xlrd", specifier = ">=2.0.2" },
 ]
 
@@ -2596,6 +2633,39 @@ wheels = [
 ]
 
 [[package]]
+name = "neo4j"
+version = "6.1.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pytz" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/1b/01/d6ce65e4647f6cb2b9cca3b813978f7329b54b4e36660aaec1ddf0ccce7a/neo4j-6.1.0.tar.gz", hash = "sha256:b5dde8c0d8481e7b6ae3733569d990dd3e5befdc5d452f531ad1884ed3500b84", size = 239629, upload-time = "2026-01-12T11:27:34.777Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/70/5c/ee71e2dd955045425ef44283f40ba1da67673cf06404916ca2950ac0cd39/neo4j-6.1.0-py3-none-any.whl", hash = "sha256:3bd93941f3a3559af197031157220af9fd71f4f93a311db687bd69ffa417b67d", size = 325326, upload-time = "2026-01-12T11:27:33.196Z" },
+]
+
+[[package]]
+name = "neo4j-graphrag"
+version = "1.13.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "fsspec" },
+    { name = "json-repair" },
+    { name = "neo4j" },
+    { name = "numpy", marker = "python_full_version < '3.15'" },
+    { name = "pydantic" },
+    { name = "pypdf" },
+    { name = "pyyaml" },
+    { name = "scipy", marker = "python_full_version < '3.15'" },
+    { name = "tenacity" },
+    { name = "types-pyyaml" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f2/17/b3c1dfa0cf1e16aac3e7d07c666e86c1be3497f98138a383f757214bcaad/neo4j_graphrag-1.13.1.tar.gz", hash = "sha256:8d1c06e7d01ea1972abb311f602da69f282b459a4256bbfe3a86ef5d5a0a0ec0", size = 1323575, upload-time = "2026-02-25T12:10:53.911Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/90/a8/1193079e5b94424a56e203be622b10efbaf23fd47809c2fe1d7540d70bfe/neo4j_graphrag-1.13.1-py3-none-any.whl", hash = "sha256:19a04fda925b70eb47cc2f0f1f18b1e8b0a9b581329525d275cea7f9bb28ca99", size = 222805, upload-time = "2026-02-25T12:10:52.245Z" },
+]
+
+[[package]]
 name = "numpy"
 version = "2.4.2"
 source = { registry = "https://pypi.org/simple" }
@@ -2631,23 +2701,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/0b/5f/19930f824ffeb0ad4372da4812c50edbd1434f678c90c2733e1188edfc63/oauthlib-3.3.1.tar.gz", hash = "sha256:0f0f8aa759826a193cf66c12ea1af1637f87b9b4622d46e866952bb022e538c9", size = 185918, upload-time = "2025-06-19T22:48:08.269Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/be/9c/92789c596b8df838baa98fa71844d84283302f7604ed565dafe5a6b5041a/oauthlib-3.3.1-py3-none-any.whl", hash = "sha256:88119c938d2b8fb88561af5f6ee0eec8cc8d552b7bb1f712743136eb7523b7a1", size = 160065, upload-time = "2025-06-19T22:48:06.508Z" },
-]
-
-[[package]]
-name = "ocr"
-version = "0.1.0"
-source = { virtual = "OCR" }
-dependencies = [
-    { name = "dotenv-python" },
-    { name = "groq" },
-    { name = "streamlit" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "dotenv-python", specifier = ">=0.0.1" },
-    { name = "groq", specifier = ">=0.37.1" },
-    { name = "streamlit", specifier = ">=1.8.0" },
 ]
 
 [[package]]
@@ -4154,6 +4207,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/da/22/b9c47b8655937b6877d40791b937931702ba9c5f9d28753199266aa96f50/typer_slim-0.23.1.tar.gz", hash = "sha256:dfe92a6317030ee2380f65bf92e540d7c77fefcc689e10d585b4925b45b5e06a", size = 4762, upload-time = "2026-02-13T10:04:26.416Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/ad/8a/5764b851659345f34787f1b6eb30b9d308bbd6c294825cbe38b6b869c97a/typer_slim-0.23.1-py3-none-any.whl", hash = "sha256:8146d5df1eb89f628191c4c604c8464fa841885d0733c58e6e700ff0228adac5", size = 3397, upload-time = "2026-02-13T10:04:27.132Z" },
+]
+
+[[package]]
+name = "types-pyyaml"
+version = "6.0.12.20250915"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/7e/69/3c51b36d04da19b92f9e815be12753125bd8bc247ba0470a982e6979e71c/types_pyyaml-6.0.12.20250915.tar.gz", hash = "sha256:0f8b54a528c303f0e6f7165687dd33fafa81c807fcac23f632b63aa624ced1d3", size = 17522, upload-time = "2025-09-15T03:01:00.728Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/bd/e0/1eed384f02555dde685fff1a1ac805c1c7dcb6dd019c916fe659b1c1f9ec/types_pyyaml-6.0.12.20250915-py3-none-any.whl", hash = "sha256:e7d4d9e064e89a3b3cae120b4990cd370874d2bf12fa5f46c97018dd5d3c9ab6", size = 20338, upload-time = "2025-09-15T03:00:59.218Z" },
 ]
 
 [[package]]
