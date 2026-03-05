@@ -6,6 +6,13 @@ import asyncio
 from embed import generate_embeddings
 from pydantic import BaseModel, Field
 
+lm = dspy.LM(
+    model="groq/openai/gpt-oss-20b",
+    api_key=os.environ.get("GROQ_API_KEY"),
+)
+
+dspy.configure(lm=lm)
+
 
 class MemoryType(BaseModel):
     imformation: str = Field(
@@ -32,13 +39,6 @@ class MemoryExtract(dspy.Signature):
 
 
 memory_extractor = dspy.Predict(MemoryExtract)
-
-lm = dspy.LM(
-    model="groq/openai/gpt-oss-20b",
-    api_key=os.environ.get("GROQ_API_KEY"),
-)
-
-dspy.configure(lm=lm)
 
 
 async def extract_memories_from_messages(messages, categories):

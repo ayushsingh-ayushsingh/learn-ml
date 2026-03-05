@@ -1,6 +1,6 @@
 import numpy as np
 import dspy
-from mem import MemoryType
+from memory.mem_extraction import MemoryType
 
 embed = dspy.Embedder(model="ollama/nomic-embed-text-v2-moe:latest")
 
